@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>Boletim_Das_Médias</title>
+    <link href="CSS_Tabela.css" rel="stylesheet">
+</head>
+<body>
+    <script language="javascript">
+        var nota, ii, media, acimaMedia, percertualAcima, cont, pontosAprov;
+        cont = 0;
+        acimaMedia = 0;
+        ii = 0;
+        nota = new Array(40);
+        pontosAprov = new Array(40)
+        for(ii = 0; ii < nota.length; ii++)
+            {
+                nota[ii] = parseFloat(window.prompt("Digite uma nota"));
+                if(nota[ii] >= 6)
+                {
+                    acimaMedia = acimaMedia + 1
+                }
+                if(nota[ii] >= 6)
+                {
+                    pontosAprov[ii] = "---"
+                }
+                else
+                {
+                    pontosAprov[ii] = 6 - nota[ii]
+                }
+            }
+
+            media = 0;
+            media = parseFloat(media)
+            for(ii = 0; ii < nota.length; ii++)
+            {
+                media = media + nota[ii]; 
+            }
+            media = media / 3
+
+            percertualAcima = (acimaMedia * 100) / nota.length;
+
+    </script>
+
+    
+    <table class="tabela" border="2">
+    <form name="table">
+        <script language="javascript">
+            document.write("<tr><td colspan='3'>Media global da turma:</td><td>", media, "</td></tr>")
+            document.write("<tr><td colspan='3'>Quantidade de alunos acima da media:</td><td>", acimaMedia, "</td></tr>")
+            document.write("<tr><td colspan='3'>Percentual de aprovados (media >= 6,0):</td><td>", percertualAcima,"%</td></tr>")
+            document.write("<tr><td colspan='4'><br></td></tr>")
+            document.write("<tr><td>N do Aluno</td><td>Media Final</td><td>Indicativo visual</td><td>Pontos para atingir a aprovacao</td></tr>")
+
+            for(ii = 0; ii < nota.length; ii++)
+            {
+                cont = cont + 1;
+                document.write("<tr><td>", cont,"</td>")
+                document.write("<td>", nota[ii], "</td>")
+                if(nota[ii] >= 6)
+                {
+                document.write("<td><img class='imagem' src='POSITIVO.png'></td>")
+                }
+                else
+                {
+                document.write("<td><img class='imagem' src='NEGATIVO.png'></td>")
+                }
+                document.write("<td>", pontosAprov[ii], "</td>")
+
+
+            }
+        </script>
+    </form>
+    </table>
+</body>
+</html>
